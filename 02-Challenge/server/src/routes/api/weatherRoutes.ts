@@ -16,7 +16,7 @@ router.post('/', async (req: Request, res: Response) => {
     }
     const weatherData = await weatherService.getWeatherForCity(city);
     await historyService.addCity(city);
-    res.status(200).json(weatherData);
+    return res.status(200).json(weatherData);
   } catch (error: any) {
     console.error(error);
     return res
@@ -31,7 +31,7 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 // TODO: GET search history
-router.get('/history', async (req: Request, res: Response) => {
+router.get('/history', async (_req: Request, res: Response) => {
   try {
     const history = await historyService.getCities();
     return res.status(200).json(history);
@@ -48,7 +48,7 @@ router.delete('/history/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const updateHistory = await historyService.removeCity(id);
-    res.status(200).json(updateHistory);
+    return res.status(200).json(updateHistory);
   } catch (error: any) {
     console.error(error); 
     return res
