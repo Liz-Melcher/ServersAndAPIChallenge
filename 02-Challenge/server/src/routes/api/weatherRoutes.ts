@@ -19,7 +19,9 @@ router.post('/', async (req: Request, res: Response) => {
     res.status(200).json(weatherData);
   } catch (error: any) {
     console.error(error);
-    res.status(500).json({error: error.message || 'Internal Server Error'});
+    return res
+    .status(500)
+    .json({error: error.message || 'Internal Server Error'});
   }
 
 
@@ -35,7 +37,9 @@ router.get('/history', async (req: Request, res: Response) => {
     return res.status(200).json(history);
   } catch (error: any) {
     console.error(error);
-    res.status(500).json({ error: error.message || 'Internal Server Error'})
+    return res
+    .status(500)
+    .json({ error: error.message || 'Internal Server Error'})
   }
 });
 
@@ -47,7 +51,9 @@ router.delete('/history/:id', async (req: Request, res: Response) => {
     res.status(200).json(updateHistory);
   } catch (error: any) {
     console.error(error); 
-    res.status(500).json({ error: error.message || 'Internal Server Error'});
+    return res
+    .status(500)
+    .json({ error: error.message || 'Internal Server Error'});
   }
   }
 );
