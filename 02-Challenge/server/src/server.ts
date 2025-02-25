@@ -1,9 +1,12 @@
-import dotenv from 'dotenv';
-import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url'; 
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+import dotenv from 'dotenv';
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
+import express from 'express';
 
 // Import the routes
 import routes from './routes/index.js';
@@ -13,9 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // TODO: Serve static files of entire client dist folder
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.join(__dirname, '../.env') });
+
+
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
