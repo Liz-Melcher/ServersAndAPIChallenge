@@ -1,6 +1,6 @@
 import { Router, type Request, type Response } from 'express';
-import historyService from '../../service/historyService';
-import weatherService from '../../service/weatherService';
+import historyService from '../../service/historyService.js';
+import weatherService from '../../service/weatherService.js';
 
 const router = Router();
 
@@ -10,12 +10,12 @@ const router = Router();
 // TODO: POST Request with city name to retrieve weather data
 router.post('/', async (req: Request, res: Response) => {
   try {
-    const {city} = req.body;
-    if (!city) {
+    const { cityName} = req.body;
+    if (!cityName) {
       return res.status(400).json({error: 'City is required'});
     }
-    const weatherData = await weatherService.getWeatherForCity(city);
-    await historyService.addCity(city);
+    const weatherData = await weatherService.getWeatherForCity(cityName);
+    await historyService.addCity(cityName);
     return res.status(200).json(weatherData);
   } catch (error: any) {
     console.error(error);
