@@ -59,7 +59,7 @@ class WeatherService {
   // private async fetchLocationData(query: string) {}
 
   private async fetchLocationData(query: string): Promise<any> {
-    const url = `${this.baseURL}/geo/1.0/direct?q=${encodeURIComponent(query)}&appid=${this.apiKey}`;
+    const url = this.buildGeocodeQuery(query);
     console.log('Fetching location data from:', url);
     const response = await fetch(url); 
     if (!response.ok) {
@@ -88,10 +88,9 @@ class WeatherService {
   // TODO: Create buildGeocodeQuery method
   // private buildGeocodeQuery(): string {}
   private buildGeocodeQuery(query: string): string {
-    return `${this.baseURL}/geo/1.0/direct?q=${encodeURIComponent(
-      query
-    )}&appid=${this.apiKey}`;
-  };  // private so it can only be used in this class; 
+    return `${this.baseURL}/geo/1.0/direct?q=${encodeURIComponent(query)}&appid=${this.apiKey}`;
+  }; 
+   // private so it can only be used in this class; 
       //looks at openweather api and uses /geo/1.0/direct - the service to convert location name to lat/long
       //uses the private API key 
 
