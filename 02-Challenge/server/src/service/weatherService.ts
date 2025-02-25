@@ -59,7 +59,7 @@ class WeatherService {
   // private async fetchLocationData(query: string) {}
 
   private async fetchLocationData(query: string): Promise<any> {
-    const url = this.buildGeocodeQuery(query);
+    const url = `${this.baseURL}/geo/1.0/direct?q=${encodeURIComponent(query)}&appid=${this.apiKey}`;
     console.log('Fetching location data from:', url);
     const response = await fetch(url); 
     if (!response.ok) {
