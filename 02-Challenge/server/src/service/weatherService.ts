@@ -1,7 +1,5 @@
-import dotenv from 'dotenv'; //imports API Key 
-//import { query } from 'express'; 
-dotenv.config(); //configures API Key
-
+import dotenv from 'dotenv';
+dotenv.config();
 
 // TODO: Define an interface for the Coordinates object
 interface Coordinates {
@@ -50,6 +48,7 @@ class WeatherService {
     this.baseURL = process.env.API_BASE_URL || 'https://api.openweathermap.org';
     this.apiKey = process.env.API_KEY || '';
     console.log('Weather Service initialized. API Key:', this.apiKey);
+    console.log(process.env.API_BASE_URL)
   }
 
   
