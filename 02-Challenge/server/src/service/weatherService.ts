@@ -1,6 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+//import HistoryService from './historyService'; 
+
+
 // TODO: Define an interface for the Coordinates object
 interface Coordinates {
   lat: number;
@@ -50,9 +53,6 @@ class WeatherService {
     console.log('Weather Service initialized. API Key:', this.apiKey);
     console.log(process.env.API_BASE_URL)
   }
-
-  
-
 
   // TODO: Create fetchLocationData method
   // private async fetchLocationData(query: string) {}
@@ -157,6 +157,7 @@ class WeatherService {
   // TODO: Complete getWeatherForCity method
   // async getWeatherForCity(city: string) {}
   async getWeatherForCity(city: string): Promise<Weather[]> {
+    //await HistoryService.addCity(city);
     const coordinates = await this.fetchAndDestructureLocationData(city);
     const weatherResponse = await this.fetchWeatherData(coordinates);
     const currentWeather = this.parseCurrentWeather(weatherResponse);
