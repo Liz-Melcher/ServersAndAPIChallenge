@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3001;
 //console.log('Loaded API Key:', process.env.API_KEY);
 
 // Import the routes
-import routes from './routes/index.js';
-import weatherRoutes from './routes/api/weatherRoutes.js';
+import routes from './routes/index';
+import weatherRoutes from './routes/api/weatherRoutes';
 
 // TODO: Serve static files of entire client dist folder
 
@@ -26,7 +26,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true}));
 
 // TODO: Implement middleware to connect the routes
-app.use('api/weather', weatherRoutes)
+app.use('/api/weather', weatherRoutes)
 app.use(routes);
 
 // Start the server on the ports
