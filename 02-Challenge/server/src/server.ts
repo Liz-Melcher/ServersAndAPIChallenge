@@ -31,4 +31,4 @@ app.use('/api/weather', weatherRoutes)
 app.use(routes);
 
 // Start the server on the ports
-app.listen(PORT, '0.0.0.0',() => console.log(`Listening on PORT: ${PORT}`));
+app.listen(PORT,() => console.log(`Listening on PORT: ${PORT}`));
