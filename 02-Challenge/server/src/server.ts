@@ -12,8 +12,8 @@ const PORT: number = parseInt(process.env.PORT as string, 10) || 3001;
 //console.log('Loaded API Key:', process.env.API_KEY);
 
 // Import the routes
-import routes from './routes/index';
-import weatherRoutes from './routes/api/weatherRoutes';
+import routes from './routes/index.js';
+import weatherRoutes from './routes/api/weatherRoutes.js';
 
 // TODO: Serve static files of entire client dist folder
 
