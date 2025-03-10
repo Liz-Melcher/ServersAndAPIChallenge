@@ -6,9 +6,10 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "allowImportingTsExtensions": true,
+     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+     "noEmit": true
     "noEmit": true,
      
     "outDir": "./dist" 
